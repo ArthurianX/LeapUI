@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+
+<style>
+    html, body {
+        width:100%;
+        height:100%;
+        font-family: "Ubuntu Mono", Monaco, monospace;
+    }
+</style>
+<body>
+<h3>Instructions</h3>
+<p>
+    To active a motion, "grab" with two hands above the Leap. Open your hands to stop a motion. This is detected programmatically by the number of visible pointables.
+</p>
+<h3>Frame Motion</h3>
+<div>
+    <strong>Rotation Axis:</strong> <span id="rotation-axis"></span>
+</div>
+<div>
+    <strong>Rotation Angle:</strong> <span id="rotation-angle"></span>
+</div>
+<div>
+    <strong>Rotation Matrix:</strong> <span id="rotation-matrix"></span>
+</div>
+<div>
+    <strong>Scale Factor:</strong> <span id="scale-factor"></span>
+</div>
+<div>
+    <strong>Translation:</strong> <span id="motion-translation"></span>
+</div>
+<h3>Current Frame</h3>
+<div>
+    <strong>Hands:</strong> <span id="hands"></span>
+</div>
+<div>
+    <strong>Pointables:</strong> <span id="pointables"></span>
+</div>
+<div>
+    <strong>Translation:</strong> <span id="translation"></span>
+</div>
+<div>
+    <strong>Scaling:</strong> <span id="scaling"></span>
+</div>
+<div>
+    <strong>Rotation:</strong> <span id="rotation"></span>
+</div>
+</body>
+<script src="//js.leapmotion.com/0.2.0-beta1/leap.min.js"></script>
+<script>
+    var lastFrame = {};
+    var active = false;
+
+    Leap.loop(function(obj) {
+        document.getElementById("hands").innerHTML = obj.hands.length;
+        document.getElementById("pointables").innerHTML = obj.pointables.length;
+        document.getElementById("translation").innerHTML = obj._translation;
+        document.getElementById("scaling").innerHTML = obj._scaleFactor;
+        document.getElementById("rotation").innerHTML = obj.rotation;
+
+        if (!active && obj.hands.length > 1 && obj.pointables.length < 3) {
+            // begin motion
+            active = true;
+            lastFrame = obj;
+        }
+
+        if (active && (obj.pointables.length > 2 || obj.hands.length < 2)) {
+            // stop motion
+            active = false;
+        }
+
+        if (active) {
+            var rotationAxis = obj.rotationAxis(lastFrame);
+            var rotationAngle = obj.rotationAngle(lastFrame, rotationAxis);
+            var rotationMatrix = obj.rotationMatrix(lastFrame);
+            var scaleFactor = obj.scaleFactor(lastFrame);
+            var translation = obj.translation(lastFrame);
+            document.getElementById("rotation-axis").innerHTML = rotationAxis;
+            document.getElementById("rotation-angle").innerHTML = rotationAngle;
+            document.getElementById("rotation-matrix").innerHTML = rotationMatrix;
+            document.getElementById("scale-factor").innerHTML = scaleFactor;
+            document.getElementById("motion-translation").innerHTML = translation;
+        };
+    });
+</script>
+</html>

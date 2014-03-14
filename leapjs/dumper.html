@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Dumper - Leap</title>
+    <script src="//js.leapmotion.com/0.2.0-beta1/leap.min.js"></script>
+    <script>
+        var pausedFrame = null;
+        var latestFrame = null;
+        window.onkeypress = function(e) {
+            if (e.charCode == 32) {
+                if (pausedFrame == null) {
+                    pausedFrame = latestFrame;
+                } else {
+                    pausedFrame = null;
+                }
+            }
+        };
+        var controller = new Leap.Controller({enableGestures: true});
+        controller.loop(function(frame) {
+            console.log(frame);
+            latestFrame = frame;
+            document.getElementById('out').innerHTML = (pausedFrame ? "<p><b>PAUSED</b></p>" : "") + "<div>"+(pausedFrame || latestFrame).dump()+"</div>";
+        });
+    </script>
+</head>
+<body>
+<pre><div id="out"></div></pre>
+<div id="log"></div>
+</body>
+</html>

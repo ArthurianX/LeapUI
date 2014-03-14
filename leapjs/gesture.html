@@ -1,0 +1,27 @@
+
+<pre><div id="output"></div></pre>
+<script src="//js.leapmotion.com/0.2.0-beta1/leap.min.js"></script>
+<script>
+    // listen to Leap Motion
+    Leap.loop({enableGestures: true}, function(obj) {
+        if (obj.gestures.length > 0) {
+            obj.gestures.forEach(function(gesture) {
+                output(gesture);
+            });
+        }
+    });
+
+    var outputDiv = document.getElementById("output");
+    function output(json) {
+        var div = document.createElement("div")
+        div.innerHTML = JSON.stringify(json, undefined, 2) + "<br/>";
+        outputDiv.insertBefore(div, outputDiv.firstChild);
+    };
+
+</script>
+<style>
+    body {
+        font-size: 10px;
+        font-family: monospace;
+    }
+</style>
