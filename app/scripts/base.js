@@ -10,7 +10,7 @@ function bottom_blob() {
 function carousel() {
     var wHeight = $(window).height();
     var wWidth = $(window).width();
-    $('ul.carousel').css("width", wWidth - 10);
+    //$('ul.carousel').css("width", wWidth - 10);
     $('ul.carousel').css("height", wHeight);
     var gridWidth = $('#main_wrapper').width();
     var gridHeight = $('#main_wrapper').height();
