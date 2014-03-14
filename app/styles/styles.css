@@ -16,12 +16,12 @@
   border-radius: 50%;
   background-color: gray;
 }
-.page {
-  height: 100%;
-}
 #main_wrapper {
   position: relative;
 }
 #main_wrapper .page {
   display: none;
+}
+#main_wrapper .page.active {
+  display: block;
 }

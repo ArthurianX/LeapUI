@@ -1,4 +1,5 @@
 @import "utilities.less";
+// The bottom menu with the blob
 #bottom_menu {
   background-color: #d5dbdf;
   position: fixed;
@@ -15,13 +16,13 @@
     background-color: gray;
   }
 }
-.page {
-  //.gradient-stop(@color: #2079d4, @start: #2079d4, @stop: #1b6ec2, @color-stop: 100%);
-  height: 100%;
-}
+//main page where all the pages are
 #main_wrapper {
   position: relative;
   .page {
     display: none;
+  }
+  .page.active {
+    display: block;
   }
 }
