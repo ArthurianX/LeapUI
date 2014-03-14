@@ -18,4 +18,7 @@ $(document).ready(function () {
   jwerty.key('4', function () { 
     tl.to('#view-travel', 1, {display:'block'});
   });
+  $("#main_wrapper").mousemove(function(event) {
+    $(".upper-blob").css("left", event.pageX + 'px');
+  });
 });
