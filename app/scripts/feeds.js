@@ -13,7 +13,7 @@
             for (var i = 0; i < result.entries.length; i++) {
                 var entry = result.entries[i];
                 var html = '<div class="'+ category + ' ' + site[1] + '">';
-                html += '<span>' + entry.title + '</span>';
+                html += '<h2>' + entry.title + '</h2>';
                 html += '<p>' + entry.contentSnippet + '</p>' + '</div>';
                 $('#view-' + category).append(html);
             }
