@@ -26,46 +26,69 @@
   }
   ul.carousel {
     width: 5400px;
-    height: 100%;
     overflow: hidden;
+    -webkit-transform-style: preserve-3d;
+    .perspective(500px);
     li {
       width: 900px;
       float: left;
       height: 100%;
     }
   }
-  ul.hexagon {
-    position: absolute;
-    top:100px;
-    left: 50%;
-    .perspective(1200px);
+
+  ul.circular {
+    border-radius: 50%;
+    pointer-events: auto;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    position: relative;
     li {
-      border: 1px solid black;
-      width: 200px;
-      height: 200px;
+     position: absolute;
+     font-size: 1.5em;
+     width: 10em;
+     height: 10em;
+     -webkit-transform-origin: 50% 200%;
+     -moz-transform-origin: 50% 200%;
+     -ms-transform-origin: 50% 200%;
+     transform-origin: 50% 200%;
+     overflow: hidden;
+     left: 50%;
+     top: 50%;
+     margin-top: -1.3em;
+     margin-left: -10em;
+     -webkit-transition: border .3s ease;
+     -moz-transition: border .3s ease;
+     transition: border .3s ease;
+    }
+    li {
+      background-color: #ccc;
+      box-shadow: 1px 1px 2px #000;
+
     }
     .a {
-      background-color: #961717;
+      .transform(rotate(0deg) );
+      .page {
+        height: 14.5em;
+        width: 14.5em;
+        border-radius: 50%;
+      }
     }
     .b {
-      .transform(translatex(-150px) rotatey(120deg)translatey(-155px));
-      background-color: #2d80ab;
+      .transform(rotate(60deg));
     }
     .c {
-      .transform(translatex(145px) rotatey(-120deg) translatey(-355px));
-      background-color: #5324cb;
+      .transform(rotate(120deg));
     }
     .d {
-      .transform(translatex(-125px) rotatey(240deg) translatey(-480px));
-      background-color: #2e9d2b;
+      .transform(rotate(180deg));
     }
     .e {
-      background-color: #ce7c1c;
-      .transform(translatey(-650px)translatex(30px));
+      .transform(rotate(240deg));
     }
     .f {
-      .transform(translatex(160px) rotatey(-260deg) translateY(-880px));
-      background-color: #45b9c0;
+      .transform(rotate(300deg));
     }
   }
 }
