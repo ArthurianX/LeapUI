@@ -19,10 +19,17 @@
 //main page where all the pages are
 #main_wrapper {
   position: relative;
-  .page {
-    display: none;
-  }
   .page.active {
     display: block;
+  }
+  ul.carousel {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    li {
+      float: left;
+      width: 100%;
+      height: 100%;
+    }
   }
 }
