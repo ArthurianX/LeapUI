@@ -1,0 +1,30 @@
+.cursor {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background-color: red;
+  position: absolute;
+  z-index: 9999;
+}
+#dev {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  position: absolute;
+  color: #fff;
+  width: 250px;
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  z-index: 10;
+}
+.content div {
+  width: 80%;
+  height: 150px;
+  margin: 30px auto;
+}
+.content div.hovered {
+  background-color: #A0A0A0;
+}

@@ -1,5 +1,8 @@
 //Declare new Leap Controller
-var controller = new Leap.Controller({frameEventName: "deviceFrame"});
+var controller = new Leap.Controller({
+    frameEventName: "deviceFrame",
+    enableGestures: true
+});
 
 
 
@@ -32,7 +35,8 @@ $(document).ready(function(){
 
     /* Screen Position of hand. - Pointer */
     window.handHoldDemoCursor = $('.cursor');
-    window.handHoldDemoOutput = $('#dev .position-output')
+    window.handHoldDemoOutput = $('#dev .position-output');
+    window.gestureDemoOutput = $('#dev .gestures')
 
     controller
         .use('screenPosition', {
@@ -42,7 +46,7 @@ $(document).ready(function(){
         .on('frame', function(frame) {
             var hand;
 
-
+            //Cursor movement, with 1-3 fingers
             if ((hand = frame.hands[0])&&(frame.fingers.length >= 1)&&(frame.fingers.length <4)) {
 
                 handHoldDemoOutput.html("[<br/>&nbsp;&nbsp;" + (hand.screenPosition()[0]) +
@@ -58,6 +62,7 @@ $(document).ready(function(){
                 overlapping.addClass("hovered");
             }
 
+            //Page scrolling, if we have more than 3 fingers
             if ((hand = frame.hands[0])&&(frame.fingers.length > 3)&&(frame.fingers.length <= 5)) {
 
                 handHoldDemoOutput.html("[<br/>&nbsp;&nbsp;" + (hand.screenPosition()[0]) +
@@ -68,6 +73,7 @@ $(document).ready(function(){
                 if (hand.screenPosition()[1] < triHeight) {
                     console.log("going up");
 
+                    //Accelerate on scroll
                     if ((hand.screenPosition()[1] > 250) && (mTop < 0)) {
                         $('.content').css({
                             marginTop: mTop += 10
@@ -85,18 +91,80 @@ $(document).ready(function(){
                 } else {
                     console.log("going down");
 
-                    if(mTop > (viewHeight - contentHeight)) {
+
+                    //Accelerate on scroll
+                    if((mTop > (viewHeight - contentHeight))&&((hand.screenPosition()[1] < 350))) {
                         $('.content').css({
                             marginTop: mTop -= 10
+                        })
+                    } else if((mTop > (viewHeight - contentHeight))&&((hand.screenPosition()[1] < 400))) {
+                        $('.content').css({
+                            marginTop: mTop -= 15
+                        })
+                    } else if((mTop > (viewHeight - contentHeight))&&((hand.screenPosition()[1] < 500))) {
+                        $('.content').css({
+                            marginTop: mTop -= 20
                         })
                     }
 
 
                 }
-
-
-
             }
+
+            //Gestures
+
+            if(frame.gestures.length > 0) {
+
+                var gestures = frame.gestures;
+                var gestureType = gestures[0].type;
+                var gestureState = gestures[0].state;
+
+                if (gestureType == 'swipe') {
+                    var gestureDirection = gestures[0].direction[0];
+
+                    if (gestureState == 'start') {
+                        console.log(gestures[0]);
+
+                    }
+
+                    if (gestureState == 'stop') {
+                        console.log(gestures[0]);
+                        var gesturePosition = gestures[0].position[0];
+                        var gestureStartPosition = gestures[0].startPosition[0];
+
+                        //We have both values, compare them
+                        if ((gestureDirection > 0)&&(Math.abs(gesturePosition - gestureStartPosition) > 50)) {
+                            console.log("Swipe Event RIGHT fired");
+                        } else {
+                            console.log("Swipe Event LEFT fired");
+                        }
+
+                    }
+
+                }
+
+                if ((gestureType == 'circle')&&(gestureState == 'start')) {
+                    console.log(gestures[0]);
+                    console.log("Circle Event STARTED");
+                }
+
+                if ((gestureType == 'circle')&&(gestureState == 'stop')) {
+
+                    var gestureRadius = gestures[0].radius;
+
+                    if (gestureRadius > 50) {
+                        console.log(gestures[0]);
+                        console.log("Circle Event fired and ENDED");
+                    }
+                }
+            }
+
+            gestureDemoOutput.html("[<br/>&nbsp;&nbsp;" + gestures);
+
+
+
+
+
         })
 
         .on('connect', function(){
