@@ -20,7 +20,6 @@
   position: relative;
   width: 900px;
   margin: 0 auto;
-  overflow: hidden;
 }
 #main_wrapper .page.active {
   display: block;
@@ -34,4 +33,61 @@
   width: 900px;
   float: left;
   height: 100%;
+}
+#main_wrapper ul.hexagon {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  -webkit-perspective: 1200px;
+  -moz-perspective: 1200px;
+  -o-perspective: 1200px;
+  perspective: 1200px;
+}
+#main_wrapper ul.hexagon li {
+  border: 1px solid black;
+  width: 200px;
+  height: 200px;
+}
+#main_wrapper ul.hexagon .a {
+  background-color: #961717;
+}
+#main_wrapper ul.hexagon .b {
+  -webkit-transform: translatex(-150px) rotatey(120deg) translatey(-155px);
+  -moz-transform: translatex(-150px) rotatey(120deg) translatey(-155px);
+  -o-transform: translatex(-150px) rotatey(120deg) translatey(-155px);
+  -ms-transform: translatex(-150px) rotatey(120deg) translatey(-155px);
+  transform: translatex(-150px) rotatey(120deg) translatey(-155px);
+  background-color: #2d80ab;
+}
+#main_wrapper ul.hexagon .c {
+  -webkit-transform: translatex(145px) rotatey(-120deg) translatey(-355px);
+  -moz-transform: translatex(145px) rotatey(-120deg) translatey(-355px);
+  -o-transform: translatex(145px) rotatey(-120deg) translatey(-355px);
+  -ms-transform: translatex(145px) rotatey(-120deg) translatey(-355px);
+  transform: translatex(145px) rotatey(-120deg) translatey(-355px);
+  background-color: #5324cb;
+}
+#main_wrapper ul.hexagon .d {
+  -webkit-transform: translatex(-125px) rotatey(240deg) translatey(-480px);
+  -moz-transform: translatex(-125px) rotatey(240deg) translatey(-480px);
+  -o-transform: translatex(-125px) rotatey(240deg) translatey(-480px);
+  -ms-transform: translatex(-125px) rotatey(240deg) translatey(-480px);
+  transform: translatex(-125px) rotatey(240deg) translatey(-480px);
+  background-color: #2e9d2b;
+}
+#main_wrapper ul.hexagon .e {
+  background-color: #ce7c1c;
+  -webkit-transform: translatey(-650px) translatex(30px);
+  -moz-transform: translatey(-650px) translatex(30px);
+  -o-transform: translatey(-650px) translatex(30px);
+  -ms-transform: translatey(-650px) translatex(30px);
+  transform: translatey(-650px) translatex(30px);
+}
+#main_wrapper ul.hexagon .f {
+  -webkit-transform: translatex(160px) rotatey(-260deg) translateY(-880px);
+  -moz-transform: translatex(160px) rotatey(-260deg) translateY(-880px);
+  -o-transform: translatex(160px) rotatey(-260deg) translateY(-880px);
+  -ms-transform: translatex(160px) rotatey(-260deg) translateY(-880px);
+  transform: translatex(160px) rotatey(-260deg) translateY(-880px);
+  background-color: #45b9c0;
 }

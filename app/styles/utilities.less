@@ -25,3 +25,16 @@
   -moz-border-radius: @radius;
   border-radius: @radius;
 }
+.perspective(@num: 1100px) {
+  -webkit-perspective: @num;
+-moz-perspective: @num;
+-o-perspective: @num;
+perspective: @num;
+}
+.transform(@arguments) {
+  -webkit-transform: @arguments;
+  -moz-transform: @arguments;
+  -o-transform: @arguments;
+  -ms-transform: @arguments;
+  transform: @arguments;
+}
