@@ -1,7 +1,59 @@
+//Declare new Leap Controller
+var controller = new Leap.Controller({
+    frameEventName: "deviceFrame",
+    enableGestures: true
+});
+
+
 $(document).ready(function () {
+
+
+    /* Getting Some Default values to work with */
+
+    var viewHeight = $(window).height();
+
+    var viewWidth = $(window).width();
+
+    var triHeight = viewHeight / 3;
+
+    var contentHeight = $(".page").height(); //inner scrollable content
+
+    var mTop = 1; //Starting point for the calculation of scroll
+
+
+    /* Molding Viewport List */
+
+    $('ul.carousel li').css({
+        width: viewWidth
+    });
+
+    $('ul.carousel').css({
+        width: viewWidth * $('ul.carousel li').length
+    })
+
+
+    /* Making some outpost */
+
+    console.log("Viewport height is: " + viewHeight);
+    console.log("Viewport width is: " + viewWidth);
+    console.log("Height trifecta is: " + triHeight);
+    console.log("Current content height is: " +contentHeight);
+
     bottom_blob();
     carousel();
     keybinder();
+
+    /*
+     * ======================= LEAP CONTROL START
+     * */
+
+
+    /* Screen Position of hand. - Pointer */
+    window.handHoldDemoCursor = $('.cursor');
+    window.handHoldDemoOutput = $('#dev .position-output');
+    window.gestureDemoOutput = $('#dev .gestures')
+
+
     // Depending on which view we choose we have to initialize some things before that.
     $('#views').change(function() {
         if (draggable[0] != undefined) {
@@ -40,11 +92,14 @@ $(document).ready(function () {
         }
     });
 });
+
 var draggable = null;
 var tl = new TimelineMax();
 
+
+
 /**
- * The cursor follower.
+ * The cursor cult1 follower.
  */
 function bottom_blob() {
     $("#main_wrapper").mousemove(function(event) {
@@ -52,12 +107,14 @@ function bottom_blob() {
     });
 }
 
+
 /**
  * Creates the circle view.
  */
 function spinning_weel() {
-    draggable = Draggable.create(".carousel", {type: "rotation", throwProps: true});
+    draggable = new Draggable.create(".carousel", {type: "rotation", throwProps: true});
 }
+
 
 /**
  * Creates the slider view.
@@ -81,6 +138,7 @@ function carousel(pos) {
     }
 }
 
+
 /**
  * Enables right and left navigation by key typing.
  */
@@ -92,6 +150,7 @@ function keybinder() {
         });
     });
 }
+
 
 /**
  * Calculates the X value for snap and more.

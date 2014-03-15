@@ -1,5 +1,52 @@
 @import "utilities.less";
+
 // The bottom menu with the blob
+
+.cursor {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background-color: red;
+  position: absolute;
+  z-index: 9999;
+}
+
+#dev {
+  background-color: rgba(0,0,0,0.6);
+  padding: 20px;
+  position: absolute;
+  color: #fff;
+  width: 250px;
+  height: 100px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 9999;
+
+}
+
+/* Main Viewport Styles */
+
+.header {
+  position: fixed;
+  height: 20%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: darkgray;
+}
+
+#main_wrapper {
+  background-color: lightgrey;
+  position: fixed;
+  height: 80%;
+  width: 100%;
+  top: 20%;
+  left: 0;
+
+}
+
+
+
 #bottom_menu {
   background-color: #d5dbdf;
   position: fixed;
@@ -21,10 +68,6 @@ ul {
 }
 //main page where all the pages are
 #main_wrapper {
-  position: relative;
-  width: 900px;
-  margin: 0 auto;
-  overflow: hidden;
   .page.active {
     display: block;
   }
