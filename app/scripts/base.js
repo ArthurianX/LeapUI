@@ -295,11 +295,6 @@ $(document).ready(function () {
                     carousel();
                     break;
                 case 'cards':
-                    var html = '';
-                    $('#main_wrapper').find('.carousel li').each(function(){
-                        html += '<li>'+$(this).find('h1').text()+'</li>';
-                    });
-                    $('.cards-view ul').append(html);
                     $('#main_wrapper').attr('style', 'overflow: visible;');
                     $('.cards li').click(function() {
                         if (carousel_element.hasClass('cards')) {
@@ -312,7 +307,14 @@ $(document).ready(function () {
                     });
                     break;
                 case 'menu':
-                    $('#main_wrapper').append('<div class="menu-view"><ul></ul></div>')
+                    $('#main_wrapper').append('<div class="menu-view"><ul></ul></div>');
+                    var html = '';
+                    $('#main_wrapper').find('.carousel li').each(function(){
+                        html += '<li>'+$(this).find('h1').text()+'</li>';
+                    });
+                    console.log(html);
+                    $('.menu-view ul').append(html);
+                    console.log($('.menu-view ul').length);
                     break;
             }
         }
