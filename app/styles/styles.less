@@ -1,5 +1,4 @@
 @import "utilities.less";
-@import "colors.css";
 
 @font-face {
     font-family: 'droid_sansregular';
@@ -161,15 +160,19 @@ ul {
     h1,h2 {
       font-family: "droid_sansbold";
     }
+    h2 {
+      font-size: 18px;
+    }
     div {
       width: 10%;
       width: 15%;
       float: left;
-      padding: 20px;
+      padding: 10px;
       margin: 10px 10px 0 0;
-    }
-    &.hoverd {
-
+      .perspective(100);
+      &.hovered {
+        -webkit-animation: fold 300ms ease-in-out;
+      }
     }
   }
 }//#main_wrapper End
@@ -199,3 +202,23 @@ ul {
     }
   }
 }
+
+@-webkit-keyframes fold {
+    0% {
+        .transform( rotatex(0deg));
+        background-position: 96% 0;
+        background-color: #fff;
+    }
+    50% {
+        .transform( rotatex(0.5deg));
+        background-position: 45% 0;
+        background-color: #eaeaea;
+    }
+    100% {
+        .transform( rotatex(0deg));
+        background-position: 96% 0;
+        background-color: #fff;
+    }
+}
+
+@import "colors.css";

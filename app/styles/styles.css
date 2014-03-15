@@ -174,12 +174,22 @@ ul {
 #main_wrapper .page h2 {
   font-family: "droid_sansbold";
 }
+#main_wrapper .page h2 {
+  font-size: 18px;
+}
 #main_wrapper .page div {
   width: 10%;
   width: 15%;
   float: left;
-  padding: 20px;
+  padding: 10px;
   margin: 10px 10px 0 0;
+  -webkit-perspective: 100;
+  -moz-perspective: 100;
+  -o-perspective: 100;
+  perspective: 100;
+}
+#main_wrapper .page div.hovered {
+  -webkit-animation: fold 300ms ease-in-out;
 }
 #main_wrapper ul.cards li {
   width: 33%;
@@ -208,4 +218,33 @@ ul {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+}
+@-webkit-keyframes fold {
+  0% {
+    -webkit-transform: rotatex(0deg);
+    -moz-transform: rotatex(0deg);
+    -o-transform: rotatex(0deg);
+    -ms-transform: rotatex(0deg);
+    transform: rotatex(0deg);
+    background-position: 96% 0;
+    background-color: #fff;
+  }
+  50% {
+    -webkit-transform: rotatex(0.5deg);
+    -moz-transform: rotatex(0.5deg);
+    -o-transform: rotatex(0.5deg);
+    -ms-transform: rotatex(0.5deg);
+    transform: rotatex(0.5deg);
+    background-position: 45% 0;
+    background-color: #eaeaea;
+  }
+  100% {
+    -webkit-transform: rotatex(0deg);
+    -moz-transform: rotatex(0deg);
+    -o-transform: rotatex(0deg);
+    -ms-transform: rotatex(0deg);
+    transform: rotatex(0deg);
+    background-position: 96% 0;
+    background-color: #fff;
+  }
 }
