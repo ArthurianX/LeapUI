@@ -215,6 +215,7 @@ $(document).ready(function () {
 
                     if ($(".switch li.hovered").length) {
                         console.log("Firing " + $(".switch li.hovered").attr("class"));
+                        $(".switch li.hovered").click();
                     }
 
                 }
