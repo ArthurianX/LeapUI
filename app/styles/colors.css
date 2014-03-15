@@ -95,3 +95,6 @@ body {
   -moz-border-radius: 50% !important;
   border-radius: 84% !important;
 }
+#dev {
+  display: none;
+}
