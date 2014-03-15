@@ -1,4 +1,5 @@
 @import "utilities.less";
+@import "colors.css";
 
 @font-face {
     font-family: 'droid_sansregular';
@@ -21,9 +22,6 @@
     font-weight: normal;
     font-style: normal;
 
-}
-body {
-  background-color: #edf0f2 !important;
 }
 // The bottom menu with the blob
 
@@ -97,6 +95,8 @@ ul {
   ul.carousel {
     -webkit-transform-style: preserve-3d;
     .perspective(500px);
+    margin: 0px;
+    padding: 0px;
     li {
       float: left;
       height: 100%;
@@ -185,6 +185,9 @@ ul {
       margin: 10px 10px 0 0;
       .box-shadow(1px 1px 3px gray);
     }
+    &.hoverd {
+
+    }
   }
 }//#main_wrapper End
 #main_wrapper ul.cards li {
@@ -207,6 +210,18 @@ ul {
       border: 1px solid black;
       float: left;
       margin-right: 20px;
+      padding: 15px 0 0 21px;
+      cursor: pointer;
+      .rounded(5px);
+    }
+    .slide-icon {
+      background: url('../img/icon-slide.png') no-repeat 6px 0px;
+    }
+    .card-icon {
+      background: url('../img/icon-cards.png') no-repeat;
+    }
+    .circular-icon {
+      background: url('../img/icon-circular.png') no-repeat 6px 0px;
     }
   }
 }
