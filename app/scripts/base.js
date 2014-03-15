@@ -273,7 +273,7 @@ $(document).ready(function () {
      * */
 
     // Depending on which view we choose we have to initialize some things before that.
-    $('#views').click(function() {
+    $('#viewss').click(function() {
         if (draggable[0] != undefined) {
             var type = draggable[0].vars.type;
             draggable[0].kill();
@@ -312,6 +312,8 @@ $(document).ready(function () {
     });
 $('#views li').click(function() {
     var viewAction = $(this).data('view');
+    console.log(viewAction);
+    
     switch (viewAction) {
       case 'circular':
        
@@ -320,11 +322,12 @@ $('#views li').click(function() {
         
         break;
       case 'cards':
-        
-        var title = $('main_wrapper').find('.carousel li h1').text();
-        console.log(title);
-        break;
-    }
+        $('main_wrapper').find('.carousel li').each(function(){
+          var title = $(this).find('h1').text();
+          console.log(title);
+        });
+      };
+ 
 });
 });
 
@@ -408,3 +411,4 @@ $.fn.calculateX = function(add) {
 
     return multiple * gridWidth;
 }
+
