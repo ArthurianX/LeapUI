@@ -249,7 +249,7 @@ $(document).ready(function () {
      * */
 
     // Depending on which view we choose we have to initialize some things before that.
-    $('#views li').click(function() {
+    $('#views').click(function() {
         if (draggable[0] != undefined) {
             var type = draggable[0].vars.type;
             draggable[0].kill();
@@ -286,6 +286,22 @@ $(document).ready(function () {
             }
         }
     });
+$('#views li').click(function() {
+    var viewAction = $(this).data('view');
+    switch (viewAction) {
+      case 'circular':
+       
+        break;
+      case 'carousel':
+        
+        break;
+      case 'cards':
+        
+        var title = $('main_wrapper').find('.carousel li h1').text();
+        console.log(title);
+        break;
+    }
+});
 });
 
 var draggable = null;
