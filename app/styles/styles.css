@@ -81,6 +81,12 @@ ul {
   float: left;
   height: 100%;
 }
+#main_wrapper ul.carousel.cards {
+  width: 100% !important;
+}
+#main_wrapper ul.carousel.cards li {
+  width: 33% !important;
+}
 #main_wrapper ul.circular {
   border-radius: 50%;
   pointer-events: auto;
