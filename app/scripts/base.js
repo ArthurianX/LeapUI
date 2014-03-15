@@ -280,7 +280,7 @@ $(document).ready(function () {
             var viewAction = $(this).data('view');
             console.log(viewAction);
             carousel_element.removeAttr('class').addClass('carousel ' + viewAction);
-            $('#main_wrapper').append('<div class="'+viewAction+'-view"><ul></ul></div>')
+
             switch (viewAction) {
 //                case 'circular':
 //                    tl.to('.carousel', 0.5, {
@@ -310,6 +310,9 @@ $(document).ready(function () {
                             $('#views').val('carousel');
                         }
                     });
+                    break;
+                case 'menu':
+                    $('#main_wrapper').append('<div class="menu-view"><ul></ul></div>')
                     break;
             }
         }
