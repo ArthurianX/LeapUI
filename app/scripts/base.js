@@ -313,7 +313,7 @@ $(document).ready(function () {
 $('#views li').click(function() {
     var viewAction = $(this).data('view');
     console.log(viewAction);
-    
+    $('#main_wrapper').append('<div class="'+viewAction+'-view"><ul></ul></div>')
     switch (viewAction) {
       case 'circular':
        
@@ -322,11 +322,11 @@ $('#views li').click(function() {
         
         break;
       case 'cards':
-        $('main_wrapper').find('.carousel li').each(function(){
+        $('#main_wrapper').find('.carousel li').each(function(){
           var title = $(this).find('h1').text();
-          console.log(title);
+          $('#main-wrapper').find('.cards-view ul').append('<li>'+title+'</li>');
         });
-      };
+    };
  
 });
 });
