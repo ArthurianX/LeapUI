@@ -249,12 +249,13 @@ $(document).ready(function () {
      * */
 
     // Depending on which view we choose we have to initialize some things before that.
-    $('#views').change(function() {
+    $('#views li').click(function() {
         if (draggable[0] != undefined) {
             var type = draggable[0].vars.type;
             draggable[0].kill();
             var carousel_element = $('.carousel');
-            var select_value = $(this).val();
+            var select_value = $(this).data('view');
+            console.log(select_value);
             carousel_element.removeAttr('class').addClass('carousel ' + select_value);
             console.log(select_value);
             switch (select_value) {

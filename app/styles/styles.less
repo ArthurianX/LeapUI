@@ -163,6 +163,9 @@ ul {
     h2 {
       font-size: 18px;
     }
+    h1 {
+      text-align: center;
+    }
     div {
       width: 10%;
       width: 15%;
@@ -170,7 +173,7 @@ ul {
       padding: 10px;
       margin: 10px 10px 0 0;
       .perspective(100);
-      &.hovered {
+      &:hover {
         -webkit-animation: fold 300ms ease-in-out;
       }
     }
@@ -211,7 +214,7 @@ ul {
     }
     50% {
         .transform( rotatex(0.5deg));
-        background-position: 45% 0;
+        background-position: 80% 0;
         background-color: #eaeaea;
     }
     100% {

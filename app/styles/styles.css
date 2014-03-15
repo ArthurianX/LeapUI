@@ -177,6 +177,9 @@ ul {
 #main_wrapper .page h2 {
   font-size: 18px;
 }
+#main_wrapper .page h1 {
+  text-align: center;
+}
 #main_wrapper .page div {
   width: 10%;
   width: 15%;
@@ -188,7 +191,7 @@ ul {
   -o-perspective: 100;
   perspective: 100;
 }
-#main_wrapper .page div.hovered {
+#main_wrapper .page div:hover {
   -webkit-animation: fold 300ms ease-in-out;
 }
 #main_wrapper ul.cards li {
@@ -235,7 +238,7 @@ ul {
     -o-transform: rotatex(0.5deg);
     -ms-transform: rotatex(0.5deg);
     transform: rotatex(0.5deg);
-    background-position: 45% 0;
+    background-position: 80% 0;
     background-color: #eaeaea;
   }
   100% {
