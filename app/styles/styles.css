@@ -1,3 +1,20 @@
+@font-face {
+  font-family: 'droid_sansregular';
+  src: url('font/regular/DroidSans-webfont.eot');
+  src: url('font/regular/DroidSans-webfont.eot?#iefix') format('embedded-opentype'), url('font/regular/DroidSans-webfont.woff') format('woff'), url('font/regular/DroidSans-webfont.ttf') format('truetype'), url('font/regular/DroidSans-webfont.svg#droid_sansregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'droid_sansbold';
+  src: url('font/bold/DroidSans-Bold-webfont.eot');
+  src: url('font/bold/DroidSans-Bold-webfont.eot?#iefix') format('embedded-opentype'), url('font/bold/DroidSans-Bold-webfont.woff') format('woff'), url('font/bold/DroidSans-Bold-webfont.ttf') format('truetype'), url('font/bold/DroidSans-Bold-webfont.svg#droid_sansbold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  background-color: #edf0f2 !important;
+}
 .cursor {
   width: 10px;
   height: 10px;
@@ -55,12 +72,8 @@
 ul {
   list-style: none;
 }
-#main_wrapper .page.active {
-  display: block;
-}
 #main_wrapper ul.carousel {
   width: 5400px;
-  overflow: hidden;
   -webkit-transform-style: preserve-3d;
   -webkit-perspective: 500px;
   -moz-perspective: 500px;
@@ -68,13 +81,37 @@ ul {
   perspective: 500px;
 }
 #main_wrapper ul.carousel li {
-  width: 900px;
+  width: 27%;
   float: left;
   height: 100%;
 }
 #main_wrapper ul.circular {
   border-radius: 50%;
   pointer-events: auto;
+  background: #1e5799;
+  /* Old browsers */
+
+  background: -moz-radial-gradient(center, ellipse cover, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #1e5799), color-stop(50%, #2989d8), color-stop(51%, #207cca), color-stop(100%, #7db9e8));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-radial-gradient(center, ellipse cover, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-radial-gradient(center, ellipse cover, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
+  /* Opera 12+ */
+
+  background: -ms-radial-gradient(center, ellipse cover, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
+  /* IE10+ */
+
+  background: radial-gradient(ellipse at center, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
+  /* W3C */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e5799', endColorstr='#7db9e8', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+
   -webkit-transform: scale(0.8);
   -moz-transform: scale(0.8);
   -o-transform: scale(0.8);
@@ -157,6 +194,24 @@ ul {
 #main_wrapper .cards {
   width: 100%;
   overflow: auto;
+}
+#main_wrapper .page {
+  float: left;
+}
+#main_wrapper .page h1,
+#main_wrapper .page h2 {
+  font-family: "droid_sansbold";
+}
+#main_wrapper .page div {
+  width: 10%;
+  width: 15%;
+  float: left;
+  padding: 20px;
+  background-color: #fff;
+  margin: 10px 10px 0 0;
+  -webkit-box-shadow: 1px 1px 3px #808080;
+  -moz-box-shadow: 1px 1px 3px #808080;
+  box-shadow: 1px 1px 3px #808080;
 }
 #main_wrapper ul.cards li {
   width: 33%;
