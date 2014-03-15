@@ -271,15 +271,13 @@ $(document).ready(function () {
      * */
 
     // Depending on which view we choose we have to initialize some things before that.
-    $('#viewss').click(function() {
+    $('#views').click(function() {
         if (draggable[0] != undefined) {
             var type = draggable[0].vars.type;
             draggable[0].kill();
             var carousel_element = $('.carousel');
             var select_value = $(this).data('view');
-            console.log(select_value);
             carousel_element.removeAttr('class').addClass('carousel ' + select_value);
-            console.log(select_value);
             switch (select_value) {
                 case 'circular':
                     tl.to('.carousel', 0.5, {
@@ -310,7 +308,6 @@ $(document).ready(function () {
     });
 $('#views li').click(function() {
     var viewAction = $(this).data('view');
-    console.log(viewAction);
     $('#main_wrapper').append('<div class="'+viewAction+'-view"><ul></ul></div>')
     switch (viewAction) {
       case 'circular':
@@ -320,10 +317,11 @@ $('#views li').click(function() {
         
         break;
       case 'cards':
+        var html = '';
         $('#main_wrapper').find('.carousel li').each(function(){
-          var title = $(this).find('h1').text();
-          $('#main-wrapper').find('.cards-view ul').append('<li>'+title+'</li>');
+          html += '<li>'+$(this).find('h1').text()+'</li>';
         });
+        $('.cards-view ul').append(html);
     };
  
 });
