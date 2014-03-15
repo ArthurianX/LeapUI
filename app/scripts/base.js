@@ -271,20 +271,22 @@ $(document).ready(function () {
      * */
 
     // Depending on which view we choose we have to initialize some things before that.
-    $('#views').click(function() {
+    $('#views li').click(function() {
         if (draggable[0] != undefined) {
             var type = draggable[0].vars.type;
             draggable[0].kill();
             var carousel_element = $('.carousel');
-            var select_value = $(this).data('view');
-            carousel_element.removeAttr('class').addClass('carousel ' + select_value);
-            switch (select_value) {
-                case 'circular':
-                    tl.to('.carousel', 0.5, {
-                        x: 0
-                    });
-                    spinning_weel();
-                    break;
+            var viewAction = $(this).data('view');
+            console.log(viewAction);
+            carousel_element.removeAttr('class').addClass('carousel ' + viewAction);
+            $('#main_wrapper').append('<div class="'+viewAction+'-view"><ul></ul></div>')
+            switch (viewAction) {
+//                case 'circular':
+//                    tl.to('.carousel', 0.5, {
+//                        x: 0
+//                    });
+//                    spinning_weel();
+//                    break;
                 case 'carousel':
                     tl.to('.carousel', 0.5, {
                         rotation: 0
@@ -292,6 +294,11 @@ $(document).ready(function () {
                     carousel();
                     break;
                 case 'cards':
+                    var html = '';
+                    $('#main_wrapper').find('.carousel li').each(function(){
+                        html += '<li>'+$(this).find('h1').text()+'</li>';
+                    });
+                    $('.cards-view ul').append(html);
                     $('#main_wrapper').attr('style', 'overflow: visible;');
                     $('.cards li').click(function() {
                         if (carousel_element.hasClass('cards')) {
@@ -306,25 +313,6 @@ $(document).ready(function () {
             }
         }
     });
-$('#views li').click(function() {
-    var viewAction = $(this).data('view');
-    $('#main_wrapper').append('<div class="'+viewAction+'-view"><ul></ul></div>')
-    switch (viewAction) {
-      case 'circular':
-       
-        break;
-      case 'carousel':
-        
-        break;
-      case 'cards':
-        var html = '';
-        $('#main_wrapper').find('.carousel li').each(function(){
-          html += '<li>'+$(this).find('h1').text()+'</li>';
-        });
-        $('.cards-view ul').append(html);
-    };
- 
-});
 });
 
 var draggable = null;
