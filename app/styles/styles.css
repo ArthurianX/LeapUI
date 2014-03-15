@@ -257,7 +257,7 @@ ul {
     background-color: #fff;
   }
 }
-div.cards-view {
+div.menu-view {
   position: absolute;
   background-color: rgba(255, 255, 255, 0.4);
   top: 0px;
@@ -265,7 +265,7 @@ div.cards-view {
   width: 100%;
   height: 100%;
 }
-div.cards-view ul {
+div.menu-view ul {
   width: 500px;
   height: 500px;
   background-color: #9aca54;
@@ -274,7 +274,7 @@ div.cards-view ul {
   left: 30%;
   padding: 0px !important;
 }
-div.cards-view ul li {
+div.menu-view ul li {
   padding: 10px;
   width: 156px;
   height: 200px;
@@ -285,6 +285,6 @@ div.cards-view ul li {
   font-family: "droid_sansbold";
   color: #fff;
 }
-div.cards-view ul li.hovered {
+div.menu-view ul li.hovered {
   border: 1px solid gray;
 }
