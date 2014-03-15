@@ -46,7 +46,7 @@ $(document).ready(function(){
         .on('frame', function(frame) {
             var hand;
 
-            //Cursor movement, with 1-3 fingers
+            //Cursor movement,  with 1-3 fingers
             if ((hand = frame.hands[0])&&(frame.fingers.length >= 1)&&(frame.fingers.length <4)) {
 
                 handHoldDemoOutput.html("[<br/>&nbsp;&nbsp;" + (hand.screenPosition()[0]) +
