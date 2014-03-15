@@ -204,6 +204,9 @@ $(document).ready(function () {
                     if (gestureRadius > 50) {
                         console.log(gestures[0]);
                         console.log("Circle Event fired and ENDED");
+                        if($(".menu-view").length) {
+                            $(".menu-view").remove();
+                        }
                     }
                 }
 

@@ -35,6 +35,7 @@ body {
   text-transform: uppercase;
   padding-left: 43px !important;
   padding-top: 19px !important;
+  background-color: #9aca54;
 }
 .switch .slide-icon {
   background: #9aca54 url('../img/icon-slide.png') no-repeat 6px 3px;
