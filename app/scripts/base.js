@@ -20,6 +20,7 @@ $(document).ready(function () {
 
     var mTop = 1; //Starting point for the calculation of scroll
 
+    var pageScrollHeight = 0;
 
     /* Molding Viewport List */
 
@@ -30,6 +31,16 @@ $(document).ready(function () {
     $('ul.carousel').css({
         width: viewWidth * $('ul.carousel li').length
     })
+
+    setTimeout(function(){
+        $('ul.carousel li .page').each(function(){
+            if ($(this).height() > pageScrollHeight ) {
+                pageScrollHeight = $(this).height();
+            }
+
+            console.log(pageScrollHeight);
+        })
+    }, 2000)
 
 
     /* Making some outputs */
@@ -68,12 +79,20 @@ $(document).ready(function () {
                     "        <br/>&nbsp;&nbsp;" + (hand.screenPosition()[1]) +
                     "        <br/>&nbsp;&nbsp;" + (hand.screenPosition()[2]) + "<br/>]");
 
+                //Move cursor
                 $('.cursor').css({
                     left: hand.screenPosition()[0] + 'px',
                     top: hand.screenPosition()[1] + 'px'
                 });
-                var overlapping = $(".cursor").collision( ".content div"/*, {obstacleData: "odata", colliderData: "cdata", directionData: "ddata", as: "<div/>"}*/);
-                $(".content div").removeClass("hovered");
+
+                //Move Blob
+                $(".upper-blob").css({
+                    left: $('.cursor').offset().left
+                })
+
+
+                var overlapping = $(".cursor").collision( "#main_wrapper ul li .page div"/*, {obstacleData: "odata", colliderData: "cdata", directionData: "ddata", as: "<div/>"}*/);
+                $("#main_wrapper ul li .page div").removeClass("hovered");
                 overlapping.addClass("hovered");
             }
 
@@ -90,15 +109,15 @@ $(document).ready(function () {
 
                     //Accelerate on scroll
                     if ((hand.screenPosition()[1] > 250) && (mTop < 0)) {
-                        $('.content').css({
+                        $('ul.carousel li .page').css({
                             marginTop: mTop += 10
                         })
                     } else if ((hand.screenPosition()[1] > 200) && (mTop < 0)) {
-                        $('.content').css({
+                        $('ul.carousel li .page').css({
                             marginTop: mTop += 15
                         })
                     } else if ((hand.screenPosition()[1] < 200) && (mTop < 0)) {
-                        $('.content').css({
+                        $('ul.carousel li .page').css({
                             marginTop: mTop += 20
                         })
                     }
@@ -106,18 +125,17 @@ $(document).ready(function () {
                 } else {
                     console.log("going down");
 
-
                     //Accelerate on scroll
-                    if((mTop > (viewHeight - contentHeight))&&((hand.screenPosition()[1] < 350))) {
-                        $('.content').css({
+                    if((mTop > (viewHeight - pageScrollHeight))&&((hand.screenPosition()[1] < 350))) {
+                        $('ul.carousel li .page').css({
                             marginTop: mTop -= 10
                         })
-                    } else if((mTop > (viewHeight - contentHeight))&&((hand.screenPosition()[1] < 400))) {
-                        $('.content').css({
+                    } else if((mTop > (viewHeight - pageScrollHeight))&&((hand.screenPosition()[1] < 400))) {
+                        $('ul.carousel li .page').css({
                             marginTop: mTop -= 15
                         })
-                    } else if((mTop > (viewHeight - contentHeight))&&((hand.screenPosition()[1] < 500))) {
-                        $('.content').css({
+                    } else if((mTop > (viewHeight - pageScrollHeight))&&((hand.screenPosition()[1] < 500))) {
+                        $('ul.carousel li .page').css({
                             marginTop: mTop -= 20
                         })
                     }
@@ -150,8 +168,14 @@ $(document).ready(function () {
                         //We have both values, compare them
                         if ((gestureDirection > 0)&&(Math.abs(gesturePosition - gestureStartPosition) > 50)) {
                             console.log("Swipe Event RIGHT fired");
+                            tl.to('.carousel', 0.5, {
+                                x: $().calculateX(-1)
+                            });
                         } else {
                             console.log("Swipe Event LEFT fired");
+                            tl.to('.carousel', 0.5, {
+                                x: $().calculateX(1)
+                            });
                         }
 
                     }
@@ -272,9 +296,9 @@ var tl = new TimelineMax();
  * The cursor cult1 follower.
  */
 function bottom_blob() {
-    $("#main_wrapper").mousemove(function(event) {
+    /*$("#main_wrapper").mousemove(function(event) {
         $(".upper-blob").css("left", event.pageX + 'px');
-    });
+    });*/
 }
 
 

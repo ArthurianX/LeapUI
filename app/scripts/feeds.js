@@ -18,6 +18,7 @@
                 $('#view-' + category).append(html);
             }
         }
+
     }
 
     function OnLoad() {
