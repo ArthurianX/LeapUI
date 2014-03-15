@@ -19,12 +19,39 @@ body {
 #bottom_menu .upper-blob {
   background-color: #d5dbdf;
 }
+.switch {
+  float: none !important;
+  width: 100%;
+}
+.switch ul {
+  float: none !important;
+  margin: 60px auto;
+  padding: 0;
+  width: 550px !important;
+}
+.switch li {
+  border: 0px solid #ccc !important;
+  color: #fff;
+  text-transform: uppercase;
+  padding-left: 43px !important;
+  padding-top: 19px !important;
+}
 .switch .slide-icon {
-  background: url('../img/icon-slide.png') no-repeat 6px 0px;
+  background: #9aca54 url('../img/icon-slide.png') no-repeat 6px 3px;
 }
 .switch .card-icon {
-  background: url('../img/icon-cards.png') no-repeat;
+  background: #9aca54 url('../img/icon-cards.png') no-repeat 6px 3px;
 }
 .switch .circular-icon {
-  background: url('../img/icon-circular.png') no-repeat 6px 0px;
+  background: #9aca54 url('../img/icon-circular.png') no-repeat 6px 3px;
+}
+.header {
+  background: url('../img/header.png') no-repeat 0px -75px;
+  background-size: 100%;
+}
+#main_wrapper .page div {
+  width: 33%;
+  float: left;
+  padding: 20px;
+  margin: 10px 10px 0 0;
 }
