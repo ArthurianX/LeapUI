@@ -1,4 +1,4 @@
-LearnApp
+LeapUI
 ========
 
-WebApp with documentation, tutorials and community around a select topic/framework/language.
+Leap Motion JS controlled webpage.
