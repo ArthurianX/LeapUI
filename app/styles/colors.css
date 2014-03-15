@@ -66,3 +66,31 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.7);
   z-index: 9999;
 }
+#bottom_menu {
+  background-color: #9aca54 !important;
+}
+#bottom_menu .upper-blob {
+  background: #e5e861;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #e5e861 0%, #9aca54 40%, #9aca54 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e5e861), color-stop(40%, #9aca54), color-stop(100%, #9aca54));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #e5e861 0%, #9aca54 40%, #9aca54 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #e5e861 0%, #9aca54 40%, #9aca54 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #e5e861 0%, #9aca54 40%, #9aca54 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #e5e861 0%, #9aca54 40%, #9aca54 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5e861', endColorstr='#9aca54', GradientType=0);
+  /* IE6-9 */
+  position: absolute;
+  top: -12px !important;
+  width: 130px !important;
+  height: 45px !important;
+  -webkit-border-radius: 69% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 84% !important;
+}

@@ -191,7 +191,7 @@ ul {
   -o-perspective: 100;
   perspective: 100;
 }
-#main_wrapper .page div:hover {
+#main_wrapper .page div.hovered {
   -webkit-animation: fold 300ms ease-in-out;
 }
 #main_wrapper ul.cards li {
