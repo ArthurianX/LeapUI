@@ -38,10 +38,8 @@
   width: 100%;
   left: 0;
   top: 0;
-  background-color: darkgray;
 }
 #main_wrapper {
-  background-color: lightgrey;
   position: fixed;
   height: 80%;
   width: 100%;
@@ -49,7 +47,6 @@
   left: 0;
 }
 #bottom_menu {
-  background-color: #d5dbdf;
   position: fixed;
   bottom: 0px;
   left: 0px;
@@ -64,10 +61,12 @@
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  background-color: #d5dbdf;
 }
 ul {
   list-style: none;
+}
+#main_wrapper {
+  overflow: hidden;
 }
 #main_wrapper ul.carousel {
   -webkit-transform-style: preserve-3d;
@@ -85,30 +84,6 @@ ul {
 #main_wrapper ul.circular {
   border-radius: 50%;
   pointer-events: auto;
-  background: #1e5799;
-  /* Old browsers */
-
-  background: -moz-radial-gradient(center, ellipse cover, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
-  /* FF3.6+ */
-
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #1e5799), color-stop(50%, #2989d8), color-stop(51%, #207cca), color-stop(100%, #7db9e8));
-  /* Chrome,Safari4+ */
-
-  background: -webkit-radial-gradient(center, ellipse cover, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
-  /* Chrome10+,Safari5.1+ */
-
-  background: -o-radial-gradient(center, ellipse cover, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
-  /* Opera 12+ */
-
-  background: -ms-radial-gradient(center, ellipse cover, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
-  /* IE10+ */
-
-  background: radial-gradient(ellipse at center, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
-  /* W3C */
-
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e5799', endColorstr='#7db9e8', GradientType=1);
-  /* IE6-9 fallback on horizontal gradient */
-
   -webkit-transform: scale(0.8);
   -moz-transform: scale(0.8);
   -o-transform: scale(0.8);
@@ -204,11 +179,7 @@ ul {
   width: 15%;
   float: left;
   padding: 20px;
-  background-color: #fff;
   margin: 10px 10px 0 0;
-  -webkit-box-shadow: 1px 1px 3px #808080;
-  -moz-box-shadow: 1px 1px 3px #808080;
-  box-shadow: 1px 1px 3px #808080;
 }
 #main_wrapper ul.cards li {
   width: 33%;
@@ -237,13 +208,4 @@ ul {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-}
-.switch ul .slide-icon {
-  background: url('../img/icon-slide.png') no-repeat 6px 0px;
-}
-.switch ul .card-icon {
-  background: url('../img/icon-cards.png') no-repeat;
-}
-.switch ul .circular-icon {
-  background: url('../img/icon-circular.png') no-repeat 6px 0px;
 }

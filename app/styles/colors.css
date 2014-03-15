@@ -1,3 +1,30 @@
 body {
   background-color: #edf0f2 !important;
 }
+#main_wrapper .page div {
+  background-color: #fff;
+  -webkit-box-shadow: 1px 1px 3px #808080;
+  -moz-box-shadow: 1px 1px 3px #808080;
+  box-shadow: 1px 1px 3px #808080;
+}
+#main_wrapper .page div[class*="cnn"] {
+  background: #ffffff url('../img/cnn.png') no-repeat 96% 0;
+}
+#main_wrapper .page div[class*="digg"] {
+  background: #ffffff url('../img/dig.png') no-repeat 96% 0;
+}
+#bottom_menu {
+  background-color: #d5dbdf;
+}
+#bottom_menu .upper-blob {
+  background-color: #d5dbdf;
+}
+.switch .slide-icon {
+  background: url('../img/icon-slide.png') no-repeat 6px 0px;
+}
+.switch .card-icon {
+  background: url('../img/icon-cards.png') no-repeat;
+}
+.switch .circular-icon {
+  background: url('../img/icon-circular.png') no-repeat 6px 0px;
+}

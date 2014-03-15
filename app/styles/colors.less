@@ -1,3 +1,36 @@
+@import "utilities.less";
 body {
   background-color: #edf0f2 !important;
+}
+
+#main_wrapper {
+  .page {
+    div {
+      background-color: #fff;
+      .box-shadow(1px 1px 3px gray);
+      &[class*="cnn"]{
+        background: #fff url('../img/cnn.png') no-repeat 96% 0;
+      }
+      &[class*="digg"]{
+        background: #fff url('../img/dig.png') no-repeat 96% 0;
+      }
+    }
+  }
+}
+#bottom_menu {
+  background-color: #d5dbdf;
+  .upper-blob {
+    background-color: #d5dbdf;
+  }
+}
+.switch {
+  .slide-icon {
+    background: url('../img/icon-slide.png') no-repeat 6px 0px;
+  }
+  .card-icon {
+    background: url('../img/icon-cards.png') no-repeat;
+  }
+  .circular-icon {
+    background: url('../img/icon-circular.png') no-repeat 6px 0px;
+  }
 }
