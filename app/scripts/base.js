@@ -80,10 +80,10 @@ $(document).ready(function () {
             //Cursor movement,  with 1-3 fingers
             if ((hand = frame.hands[0])&&(frame.fingers.length >= 1)&&(frame.fingers.length <4)) {
 
-                handHoldDemoOutput.html("[<br/>&nbsp;&nbsp;" + (hand.screenPosition()[0]) +
+                /*handHoldDemoOutput.html("[<br/>&nbsp;&nbsp;" + (hand.screenPosition()[0]) +
                     "        <br/>&nbsp;&nbsp;" + (hand.screenPosition()[1]) +
                     "        <br/>&nbsp;&nbsp;" + (hand.screenPosition()[2]) + "<br/>]");
-
+*/
                 //Move cursor
                 $('.cursor').css({
                     left: hand.screenPosition()[0] + 'px',
@@ -101,7 +101,7 @@ $(document).ready(function () {
                 overlapping.addClass("hovered");
 
 
-                var changeView = $(".cursor").collision( ".switch ul li"/*, {obstacleData: "odata", colliderData: "cdata", directionData: "ddata", as: "<div/>"}*/);
+                var changeView = $(".cursor").collision( ".switch ul li");
                 $(".switch ul li").removeClass("hovered");
                 changeView.addClass("hovered");
 
@@ -110,10 +110,10 @@ $(document).ready(function () {
             //Page scrolling, if we have more than 3 fingers
             if ((hand = frame.hands[0])&&(frame.fingers.length > 3)&&(frame.fingers.length <= 5)) {
 
-                handHoldDemoOutput.html("[<br/>&nbsp;&nbsp;" + (hand.screenPosition()[0]) +
+              /*  handHoldDemoOutput.html("[<br/>&nbsp;&nbsp;" + (hand.screenPosition()[0]) +
                     "        <br/>&nbsp;&nbsp;" + (hand.screenPosition()[1]) +
                     "        <br/>&nbsp;&nbsp;" + (hand.screenPosition()[2]) + "<br/>]");
-
+*/
 
                 if (hand.screenPosition()[1] < triHeight) {
                     console.log("going up");
@@ -150,8 +150,6 @@ $(document).ready(function () {
                             marginTop: mTop -= 20
                         })
                     }
-
-
                 }
             }
 
