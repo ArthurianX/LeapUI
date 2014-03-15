@@ -281,16 +281,9 @@ $(document).ready(function () {
             draggable[0].kill();
             var carousel_element = $('.carousel');
             var viewAction = $(this).data('view');
-            console.log(viewAction);
             carousel_element.removeAttr('class').addClass('carousel ' + viewAction);
-
+            $('#main_wrapper').removeAttr('style');
             switch (viewAction) {
-//                case 'circular':
-//                    tl.to('.carousel', 0.5, {
-//                        x: 0
-//                    });
-//                    spinning_weel();
-//                    break;
                 case 'carousel':
                     tl.to('.carousel', 0.5, {
                         rotation: 0
@@ -310,14 +303,12 @@ $(document).ready(function () {
                     });
                     break;
                 case 'menu':
-                    $('#main_wrapper').append('<div class="menu-view"><ul></ul></div>');
                     var html = '';
-                    $('#main_wrapper').find('.carousel li').each(function(){
+                    $('#main_wrapper').append('<div class="menu-view"><ul></ul></div>').
+                        find('.carousel li').each(function(){
                         html += '<li>'+$(this).find('h1').text()+'</li>';
                     });
-                    console.log(html);
                     $('.menu-view ul').append(html);
-                    console.log($('.menu-view ul').length);
                     break;
             }
         }
@@ -337,15 +328,6 @@ function bottom_blob() {
         $(".upper-blob").css("left", event.pageX + 'px');
     });*/
 }
-
-
-/**
- * Creates the circle view.
- */
-function spinning_weel() {
-    draggable = new Draggable.create(".carousel", {type: "rotation", throwProps: true});
-}
-
 
 /**
  * Creates the slider view.
