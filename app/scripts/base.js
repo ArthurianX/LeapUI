@@ -405,7 +405,7 @@ $.fn.calculateX = function(add) {
     if (multiple > 0) {
         multiple = multiple -1;
     }
-    else if (Math.abs(multiple) + 1 >= $('.page').length) {
+    else if (Math.abs(multiple) + 1 > $('.page').length) {
         multiple = multiple + 1;
     }
 
