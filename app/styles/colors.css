@@ -50,8 +50,19 @@ body {
   background-size: 100%;
 }
 #main_wrapper .page div {
-  width: 33%;
+  width: 30% !important;
   float: left;
   padding: 20px;
-  margin: 10px 10px 0 0;
+  margin: 10px !important;
+  height: 280px !important;
+  overflow: hidden;
+}
+.cursor {
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 20px !important;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  position: absolute;
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  z-index: 9999;
 }

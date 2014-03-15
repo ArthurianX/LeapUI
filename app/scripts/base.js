@@ -22,6 +22,8 @@ $(document).ready(function () {
 
     var pageScrollHeight = 0;
 
+    var cardHeight = 0;
+
     /* Molding Viewport List */
 
     $('ul.carousel li').css({
@@ -39,7 +41,10 @@ $(document).ready(function () {
             }
 
             console.log(pageScrollHeight);
-        })
+        });
+
+
+
     }, 2000)
 
 
@@ -82,7 +87,7 @@ $(document).ready(function () {
                 //Move cursor
                 $('.cursor').css({
                     left: hand.screenPosition()[0] + 'px',
-                    top: hand.screenPosition()[1] + 'px'
+                    top: hand.screenPosition()[1] + 500 + 'px'
                 });
 
                 //Move Blob
@@ -94,6 +99,12 @@ $(document).ready(function () {
                 var overlapping = $(".cursor").collision( "#main_wrapper ul li .page div"/*, {obstacleData: "odata", colliderData: "cdata", directionData: "ddata", as: "<div/>"}*/);
                 $("#main_wrapper ul li .page div").removeClass("hovered");
                 overlapping.addClass("hovered");
+
+
+                var changeView = $(".cursor").collision( ".switch ul li"/*, {obstacleData: "odata", colliderData: "cdata", directionData: "ddata", as: "<div/>"}*/);
+                $(".switch ul li").removeClass("hovered");
+                changeView.addClass("hovered");
+
             }
 
             //Page scrolling, if we have more than 3 fingers
@@ -134,7 +145,7 @@ $(document).ready(function () {
                         $('ul.carousel li .page').css({
                             marginTop: mTop -= 15
                         })
-                    } else if((mTop > (viewHeight - pageScrollHeight))&&((hand.screenPosition()[1] < 500))) {
+                    } else if((mTop > (viewHeight - pageScrollHeight))&&((hand.screenPosition()[1] > 400))) {
                         $('ul.carousel li .page').css({
                             marginTop: mTop -= 20
                         })
@@ -152,6 +163,7 @@ $(document).ready(function () {
                 var gestureType = gestures[0].type;
                 var gestureState = gestures[0].state;
 
+                //Swipe Gestures
                 if (gestureType == 'swipe') {
                     var gestureDirection = gestures[0].direction[0];
 
@@ -181,7 +193,7 @@ $(document).ready(function () {
                     }
 
                 }
-
+                //Circle Gestures
                 if ((gestureType == 'circle')&&(gestureState == 'start')) {
                     console.log(gestures[0]);
                     console.log("Circle Event STARTED");
@@ -195,6 +207,18 @@ $(document).ready(function () {
                         console.log(gestures[0]);
                         console.log("Circle Event fired and ENDED");
                     }
+                }
+
+
+
+                if ((gestureType == 'keyTap')&&(gestureState == 'stop')) {
+                    console.log(gestures[0]);
+                    console.log("KeyTap Gesture Fired");
+
+                    if ($(".switch li.hovered").length) {
+                        console.log("Firing " + $(".switch li.hovered").attr("class"));
+                    }
+
                 }
             }
 
